@@ -58,7 +58,8 @@
                 <i ng-repeat="event in col.events"
                    class="fa"
                    ng-class="{ 'fa-calendar-check-o': event.status!='TENTATIVE', 'fa-calendar-times-o': event.status=='TENTATIVE' }"
-                   data-title="{{event.dtstart|date:'shortTime'}} - {{event.dtend|date:'shortTime'}}" bs-tooltip></i>
+                   ng-style="{ color: event.absenceElem.right.type.color}"
+                   data-title="{{event.absenceElem.right.name}}<br>{{event.dtstart|date:'shortTime'}} - {{event.dtend|date:'shortTime'}}" data-html="true" bs-tooltip></i>
             </td>
         </tr>
     </tbody>

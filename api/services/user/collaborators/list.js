@@ -241,6 +241,7 @@ exports = module.exports = function(services, app) {
 
 
             find.populate('user.id');
+            find.populate('absenceElem');
 
             return find;
         }

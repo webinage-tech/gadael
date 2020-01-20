@@ -19,16 +19,21 @@
  *
  */
 exports = module.exports = function periodCriterion(find, dtstart, dtend) {
-
-    find.or([
-        { rrule: { $exists: true } },
+  find.or([
+    { rrule: { $exists: true } },
+    {
+      $and: [
         { rdate: { $exists: true } },
-        { $and:
-            [
-                { rrule: { $exists: false } },
-                { dtend: { $gt: dtstart } },
-                { dtstart: { $lt: dtend } }
-            ]
-        }
-    ]);
+        { rdate: { $ne: [] } },
+      ]
+    },
+    {
+      $and:
+        [
+          { rrule: { $exists: false } },
+          { dtend: { $gt: dtstart } },
+          { dtstart: { $lt: dtend } }
+        ]
+    }
+  ]);
 };

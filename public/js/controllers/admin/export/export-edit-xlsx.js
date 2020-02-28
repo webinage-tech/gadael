@@ -12,8 +12,8 @@ define([], function() {
         $timeout(function() {
             $scope.type = 'requests';
             $scope.period = {
-                from: null,
-                to: null,
+                from: "01/01/2019",
+                to: "12/31/2028",
                 moment: new Date()
             };
 
